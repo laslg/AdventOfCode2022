@@ -8,9 +8,11 @@ Console.WriteLine("Hello, World!");
 // var day2Result = Day2.Solve();
 // Console.WriteLine($"Day 2: {day2Result}");
 
-var day3Result = Day3.Solve();
-Console.WriteLine($"Day 3: {day3Result}");
+// var day3Result = Day3.Solve();
+// Console.WriteLine($"Day 3: {day3Result}");
 
+var day4Result = Day4.Solve();
+Console.WriteLine($"Day 4: {day4Result}");
 
 
 
