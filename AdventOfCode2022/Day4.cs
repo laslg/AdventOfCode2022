@@ -12,7 +12,7 @@ internal class Day4
             var m1 = GetSections(pair[0]);
             var m2 = GetSections(pair[1]);
 
-            if (!m1.Except(m2).Any() || !m2.Except(m1).Any())
+            if (m1.Any(s => m2.Contains(s)) || m2.Any(s => m1.Contains(s)))
             {
                 overlaps++;
             }
