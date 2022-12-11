@@ -21,7 +21,6 @@ internal class Day2
     {
         var input = File.ReadAllLines("./day2_input.txt");
 
-        var elves = new List<int>();
         var totalPoints = 0;
         for (int i = 0; i < input.Length; i++)
         {
