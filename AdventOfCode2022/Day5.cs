@@ -8,17 +8,19 @@ internal class Day5
 
         foreach (var move in moveInput)
         {
-            //move 11 from 1 to 8
             var cratesToMove = int.Parse(move.Substring(5, 2).Trim());
             var from = int.Parse(move.Substring(move.IndexOf("from ") + 5, 1));
             var to = int.Parse(move.Substring(move.Length - 1, 1));
 
-            for (int i = 0; i < cratesToMove; i++)
-            {
-                var crate = stacks[from].Last();
-                stacks[from].RemoveAt(stacks[from].LastIndexOf(crate));
-                stacks[to].Add(crate);                
-            }
+            var crates = stacks[from].TakeLast(cratesToMove);
+            stacks[to].AddRange(crates);
+            stacks[from].RemoveRange(stacks[from].Count-cratesToMove, cratesToMove);
+            // for (int i = 0; i < cratesToMove; i++)
+            // {
+            //     var crate = stacks[from].Last();
+            //     stacks[from].RemoveAt(stacks[from].LastIndexOf(crate));
+            //     stacks[to].Add(crate);                
+            // }
         }
         var result = string.Join("",stacks.Values.Select(c => c.Last())).Replace("[","").Replace("]","");
 
