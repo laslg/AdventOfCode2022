@@ -8,22 +8,25 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Update="day1_input.txt">
+    <None Remove="Inputs\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Inputs\day1_input.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="day2_input.txt">
+    <None Update="Inputs\day2_input.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="day3_input.txt">
+    <None Update="Inputs\day3_input.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="day4_input.txt">
+    <None Update="Inputs\day4_input.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="day5_input.txt">
+    <None Update="Inputs\day5_input.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="day6_input.txt">
+    <None Update="Inputs\day6_input.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
@@ -32,5 +35,8 @@
     <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Program.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Inputs\" />
   </ItemGroup>
 </Project>

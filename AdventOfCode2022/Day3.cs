@@ -2,7 +2,7 @@ internal class Day3
 {
     public static int Solve()
     {
-        var input = File.ReadAllLines("./day3_input.txt");
+        var input = File.ReadAllLines("./Inputs/day3_input.txt");
 
         var teams = new List<string[]>();
         var team = new List<string>();

@@ -2,7 +2,7 @@ internal class Day5
 {
     public static string Solve()
     {
-        var input = File.ReadAllLines("./day5_input.txt");
+        var input = File.ReadAllLines("./Inputs/day5_input.txt");
         var moveInput = input.Where(l => l.IndexOf("move") > -1).ToArray();
         var stacks = GetStacks();
 

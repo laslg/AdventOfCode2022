@@ -2,7 +2,7 @@ internal class Day4
 {
     public static int Solve()
     {
-        var input = File.ReadAllLines("./day4_input.txt");
+        var input = File.ReadAllLines("./Inputs/day4_input.txt");
 
         var overlaps = 0;
 

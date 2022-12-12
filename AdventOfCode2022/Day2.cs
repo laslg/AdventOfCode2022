@@ -19,7 +19,7 @@ internal class Day2
 
     internal static int Solve()
     {
-        var input = File.ReadAllLines("./day2_input.txt");
+        var input = File.ReadAllLines("./Inputs/day2_input.txt");
 
         var totalPoints = 0;
         for (int i = 0; i < input.Length; i++)

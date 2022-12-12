@@ -2,7 +2,7 @@
 {
     internal static object Solve()
     {
-        var input = File.ReadAllText("./day6_input.txt");
+        var input = File.ReadAllText("./Inputs/day6_input.txt");
 
         int index = 0;
         var chars = new char[14];

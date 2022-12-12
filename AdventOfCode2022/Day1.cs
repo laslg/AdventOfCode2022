@@ -2,7 +2,7 @@
 {
     internal static int Solve()
     {
-        var input = File.ReadAllLines("./day1_input.txt");
+        var input = File.ReadAllLines("./Inputs/day1_input.txt");
 
         var elves = new List<int>();
         var calories = 0;
