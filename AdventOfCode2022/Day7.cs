@@ -48,11 +48,19 @@ internal class Day7
             }
         }
 
-        IEnumerable<Dir> all = Traverse<Dir>(topDir, d => d.Dirs).ToList();
-        var bigDirs = all.Where(d => d.GetTotalSize() <= 100000).ToList();
+        IEnumerable<Dir> all = Traverse<Dir>(topDir, d => d.Dirs);
+        //var bigDirs = all.Where(d => d.GetTotalSize() <= 100000).ToList();
+        //int v = bigDirs.Sum(d => d.GetTotalSize());
 
-        int v = bigDirs.Sum(d => d.GetTotalSize());
-        return v;
+        var totalSpace = 70000000;
+        var spaceNeeded = 30000000;
+        int totalUsed = topDir.GetTotalSize();
+        System.Console.WriteLine($"Total size used: {totalUsed}");
+        var remainderNeed = spaceNeeded - (totalSpace - totalUsed);
+
+        var sacrificeDir = all.Where(d => d.GetTotalSize() >= remainderNeed).Min(d => d.GetTotalSize());
+
+        return sacrificeDir;
     }
 
     private static IEnumerable<T> Traverse<T>(T item, Func<T, IEnumerable<T>> childSelector)
