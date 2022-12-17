@@ -17,8 +17,11 @@ Console.WriteLine("Hello, World!");
 //var day5Result = Day5.Solve();
 //System.Console.WriteLine($"Day 5: {day5Result}");
 
-var day6Result = Day6.Solve();
-System.Console.WriteLine($"Day 6: {day6Result}");
+// var day6Result = Day6.Solve();
+// System.Console.WriteLine($"Day 6: {day6Result}");
+
+var day7Result = Day7.Solve();
+System.Console.WriteLine($"Day 7: {day7Result}");
 
 
 
