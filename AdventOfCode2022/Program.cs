@@ -20,9 +20,11 @@ Console.WriteLine("Hello, World!");
 // var day6Result = Day6.Solve();
 // System.Console.WriteLine($"Day 6: {day6Result}");
 
-var day7Result = Day7.Solve();
-System.Console.WriteLine($"Day 7: {day7Result}");
+// var day7Result = Day7.Solve();
+// System.Console.WriteLine($"Day 7: {day7Result}");
 
+var day8Result = Day8.Solve();
+System.Console.WriteLine($"Day 8: {day8Result}");
 
 
 Console.WriteLine("Press any key ...");
