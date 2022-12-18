@@ -16,84 +16,57 @@
             }
         }
 
-        var visibleCount = 0;
+        var scenicScore = 0;
         for (int i = 0; i < yCount; i++)
         {
             for (int j = 0; j < xCount; j++)
             {
-                if (i == 0 || i == yCount || j == 0 || j == xCount) //Edges
+                if (i == 0 || i == yCount-1 || j == 0 || j == xCount-1) //Edges
                 {
-                    visibleCount++;
+                    continue;
                 }
                 else
                 {
+                    int scoreLeft = 0, scoreRight = 0, scoreTop = 0, scoreBottom = 0;
                     var curTree = grid[i][j];
-                    bool isVisible = true;
                     // Venstre
-                    for (int k = 0; k < j; k++)
+                    for (int k = j - 1; k >= 0; k--)
                     {
+                        scoreLeft++;
                         if (curTree <= grid[i][k])
-                        {
-                            isVisible = false;
-                            break;
-                        }
-                    }
-                    if (isVisible)
-                    {
-                        visibleCount++;                        
-                        continue;
+                            break;                        
                     }
                     // Højre
-                    isVisible = true;
-                    for (int k = j+1; k < xCount; k++)
+                    for (int k = j + 1; k < xCount; k++)
                     {
+                        scoreRight++;
                         if (curTree <= grid[i][k])
-                        {
-                            isVisible = false;
-                            break;
-                        }
-                    }
-                    if (isVisible)
-                    {
-                        visibleCount++;                        
-                        continue;
+                            break;                        
                     }
                     // Oppe
-                    isVisible = true;
-                    for (int k = 0; k < i; k++)
+                    for (int k = i - 1; k >= 0; k--)
                     {
+                        scoreTop++;
                         if (curTree <= grid[k][j])
-                        {
-                            isVisible = false;
-                            break;
-                        }
-                    }
-                    if (isVisible)
-                    {
-                        visibleCount++;                        
-                        continue;
+                            break;                        
                     }
                     // Nede
-                    isVisible = true;
-                    for (int k = i+1; k < yCount; k++)
+                    for (int k = i + 1; k < yCount; k++)
                     {
+                        scoreBottom++;
                         if (curTree <= grid[k][j])
-                        {
-                            isVisible = false;
-                            break;
-                        }
+                            break;                        
                     }
-                    if (isVisible)
+                    var score = scoreLeft * scoreRight * scoreTop * scoreBottom;
+                    if (scenicScore < score)
                     {
-                        visibleCount++;                        
-                        continue;
+                        scenicScore = score;
                     }
                 }
-            }
-            
+            }            
         }
 
-        return visibleCount;
+        return scenicScore;
     }
 
 }
