@@ -9,57 +9,63 @@
 
         for (int i = 0; i < input.Length; i++)
         {
-            MakeMove(head, tail, input[i]);
+            MakeMove(head, tail, input[i], tailCoordinates);
         }
 
         return tailCoordinates.Count.ToString();
     }
 
-    private void MakeMove(Knot head, Knot tail, string move)
+    private void MakeMove(Knot head, Knot tail, string move, HashSet<KeyValuePair<int, int>> tailCoordinates)
     {
         var direction = move[0].ToDirection();
         var steps = int.Parse(move.Substring(2));
-        switch (direction)
-        {
-            case Direction.Up:
-                head.Y += steps;
-                break;
-            case Direction.Down:
-                head.Y -= steps;
-                break;
-            case Direction.Left:
-                head.X -= steps;
-                break;
-            case Direction.Right:
-                head.X += steps;
-                break;
-        }
 
-        if (!head.IsAdjecentTo(tail))
+        for (int i = 0; i < steps; i++)
         {
-            MoveTail(head, tail, direction);
-        }
+            switch (direction)
+            {
+                case Direction.Up:
+                    head.Y++;
+                    break;
+                case Direction.Down:
+                    head.Y--;
+                    break;
+                case Direction.Left:
+                    head.X--;
+                    break;
+                case Direction.Right:
+                    head.X++;
+                    break;
+            }
 
+            if (!head.IsAdjecentTo(tail))
+            {
+                MoveTail(head, tail, direction);
+                tailCoordinates.Add(new KeyValuePair<int, int>(tail.X, tail.Y));
+            }            
+        }
     }
 
     private static void MoveTail(Knot head, Knot tail, Direction direction)
     {
-        if (head.Y == tail.Y) // Only Left/Right
+        if (direction == Direction.Up || direction == Direction.Down)
         {
+            tail.X = head.X;
+
+            if (tail.Y < head.Y)
+                tail.Y = head.Y - 1;
+            else
+                tail.Y = head.Y + 1;            
+        }
+        else
+        {
+            tail.Y = head.Y;
+
             if (tail.X < head.X)
                 tail.X = head.X - 1;
             else
                 tail.X = head.X + 1;
         }
-        else if (head.X == tail.X) // Up/Down
-        {
-            if (tail.Y < head.Y)
-                tail.Y = head.Y - 1;
-            else
-                tail.Y = head.Y + 1;
-        }
-
-        //TODO mangler når det er skråt!
     }
 
     private record Knot 
