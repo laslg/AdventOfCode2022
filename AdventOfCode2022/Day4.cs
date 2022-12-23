@@ -1,6 +1,6 @@
-internal class Day4
+internal class Day4 : PuzzleBase
 {
-    public static int Solve()
+    public override string Solve()
     {
         var input = File.ReadAllLines("./Inputs/day4_input.txt");
 
@@ -18,7 +18,7 @@ internal class Day4
             }
         }
 
-        return overlaps;
+        return overlaps.ToString();
     }
 
     private static int[] GetSections(string range)

@@ -1,6 +1,6 @@
-﻿internal class Day1
+﻿internal class Day1 : PuzzleBase
 {
-    internal static int Solve()
+    public override string Solve()
     {
         var input = File.ReadAllLines("./Inputs/day1_input.txt");
 
@@ -19,6 +19,6 @@
             }
         }
         var ordered = elves.OrderByDescending(c => c);
-        return ordered.Take(3).Sum();
+        return ordered.Take(3).Sum().ToString();
     }
 }

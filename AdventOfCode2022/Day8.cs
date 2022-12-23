@@ -1,6 +1,6 @@
-﻿internal class Day8
+﻿internal class Day8 : PuzzleBase
 {
-    internal static int Solve()
+    public override string Solve()
     {
         var input = File.ReadAllLines("./Inputs/day8_input.txt");
         int xCount = input[0].Length, yCount = input.Length;
@@ -66,15 +66,6 @@
             }            
         }
 
-        return scenicScore;
+        return scenicScore.ToString();
     }
-
-}
-
-static class CharExtensions
-{
-    public static int ToInt(this char c)
-    {
-        return c - '0';
-    }    
 }

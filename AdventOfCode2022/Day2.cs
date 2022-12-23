@@ -1,4 +1,4 @@
-internal class Day2
+internal class Day2 : PuzzleBase
 {
     const char elf_rock = 'A';
     const char elf_paper = 'B';
@@ -17,7 +17,7 @@ internal class Day2
     const int winScore = 6;
 
 
-    internal static int Solve()
+    public override string Solve()
     {
         var input = File.ReadAllLines("./Inputs/day2_input.txt");
 
@@ -52,7 +52,7 @@ internal class Day2
                        
         }
 
-        return totalPoints;
+        return totalPoints.ToString();
     }
 
     private static char GetLossCounter(char elf)

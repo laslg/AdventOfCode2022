@@ -1,6 +1,6 @@
-internal class Day7
+internal class Day7 : PuzzleBase
 {
-    internal static int Solve()
+    public override string Solve()
     {
         var input = File.ReadAllLines("./Inputs/day7_input.txt");
 
@@ -55,12 +55,12 @@ internal class Day7
         var totalSpace = 70000000;
         var spaceNeeded = 30000000;
         int totalUsed = topDir.GetTotalSize();
-        System.Console.WriteLine($"Total size used: {totalUsed}");
+        //System.Console.WriteLine($"Total size used: {totalUsed}");
         var remainderNeed = spaceNeeded - (totalSpace - totalUsed);
 
         var sacrificeDir = all.Where(d => d.GetTotalSize() >= remainderNeed).Min(d => d.GetTotalSize());
 
-        return sacrificeDir;
+        return sacrificeDir.ToString();
     }
 
     private static IEnumerable<T> Traverse<T>(T item, Func<T, IEnumerable<T>> childSelector)

@@ -1,6 +1,6 @@
-internal class Day3
+internal class Day3 : PuzzleBase
 {
-    public static int Solve()
+    public override string Solve()
     {
         var input = File.ReadAllLines("./Inputs/day3_input.txt");
 
@@ -30,7 +30,7 @@ internal class Day3
             prioritySum += charValue;
         }
 
-        return prioritySum;
+        return prioritySum.ToString();
     }
 
     const string vals = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";

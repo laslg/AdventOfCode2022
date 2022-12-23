@@ -1,6 +1,6 @@
-﻿internal class Day6
+﻿internal class Day6 : PuzzleBase
 {
-    internal static object Solve()
+    public override string Solve()
     {
         var input = File.ReadAllText("./Inputs/day6_input.txt");
 
@@ -34,7 +34,7 @@
         }
 
         int numberOfChars = index + 14;
-        return numberOfChars;
+        return numberOfChars.ToString();
     }
 
     private static bool CheckArray(char[] chars)
